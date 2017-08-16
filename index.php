@@ -1,5 +1,6 @@
-<?php require_once("config.php");?>
-<!DOCTYPE html>
+<?php require_once("config.php");
+//figure out if the user is logged in with a cookie
+//?><!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <html>
