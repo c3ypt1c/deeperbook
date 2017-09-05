@@ -1,8 +1,9 @@
 import defins
 import config
 import sys
+##import hashlib
 
-#argv= [
+#argv= ["python", "username", "password"]
 argv = sys.argv[:]
 
 def xor(a, b):
@@ -10,8 +11,6 @@ def xor(a, b):
 
 def bitXor(a, b):
     return a ^ b
-
-import hashlib;
 
 def byes(by, i=0):
     global config
@@ -22,29 +21,47 @@ def byes(by, i=0):
 
 def quick(a): return int(a.hex(), base=16);
 
-##Type in the password you want to encrypt or decrypt the file with. In this case, this is the key.
-pas = hashlib.sha512(input("password to encrypt/decrypt files with> ").encode("UTF8")).digest();
-
 ##Opens the required files.
-#File to read is the file to which the algo is applied to
-f1 = open (input("file to read> "), "rb" );
 
-#File to write is the file where the data is going to be wrote to
-f2 = open (input("file to write> "), "wb" );
+def ceaser(hexhash, file, output=None, ret=True):
+    pas = hexhash
+    del hexhash
+    
+    #File to read is the file to which the algo is applied to
+    f1 = open (file, "rb" );
 
-#Position on the SHA512 in relation to the location of the file the algo is reading.
-pos = 0;
-while True:
-    x = f1.read(1);         #Read a byte ( 2 hex chars )
-    if x == b"": break;     #This checks for EOF
-    work = hex ( quick(x) ^ quick(pas[pos:(pos)+1])) [2:]; #Applies Xor for the byte.
-    if len(work) == 1: work = "0" + work;
-        #Sometimes, the Xor return lengh is < 1 which causes problems for bytes.fromhex() function,
-        #an extra 0 has to be added at the start for consistency.
-    f2.write(bytes.fromhex ( work ) );  ##Writes to file from the hex values.
-    pos+= 1;
-    if pos == 64: pos = 0;              ##The key's bit length is 512, so 512 / 8 = 64 bytes.
-                                        #Cannot go over 64 as it would cause an out of index or range error.
+    #File to write is the file where the data is going to be wrote to
+    if output:
+        f2 = open (output, "wb" );
+    else:
+        f2 = None
 
-f2.close();
-f1.close(); ##Neatly closes file :)
+    pos = 0; #Position on the SHA512 in relation to the location of the file the algo is reading.
+    paslen = len(pas) #Lengh of crypto hash.
+
+    bs=b""
+    vchange = -1 #future feature
+    
+    while True:
+        x = f1.read(1);         #Read a byte (2 hex chars)
+        if x == b"": break;     #This checks for EOF
+
+        work = hex ( quick(x) ^ quick(pas[pos:(pos)+1])) [2:]; #Applies Xor for the byte.
+        if len(work) == 1: work = "0" + work; #makes sure it passes down 2 byes down to bytes.fromhex()
+
+        if output: f2.write(bytes.fromhex(work));       ##Writes to file from the hex values.
+        if ret: bs+= bytes.fromhex(work);               ##Writes to memory bytecodes
+        
+        pos+= 1;
+        if pos == paslen or pos == vchange:
+            pos = 0;
+            #hash should change here to disallow cryptanalisis
+            
+    if output:
+        f2.close();
+        
+    f1.close(); ##Neatly closes file :)
+    
+    del f1, f2
+    if ret: return bs;
+    
