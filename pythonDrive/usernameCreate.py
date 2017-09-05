@@ -12,6 +12,7 @@ Files + Dirs to create:
 [x] $username/block.txt         -Block list
 [x] $username/messages.enc      -Encrypted messages file
 [x] $username/token.cookie      -Login token for auth
+[ ] $username/systemVersion     -System version of when the profile was created
 
 Hash CSV files:
 $salt,$hexdigest,$peper
