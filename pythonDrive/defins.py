@@ -12,6 +12,11 @@ def changeUP(filepath, to):
         pf = pf + x + ch
     os.chdir(pf)
 
+def fileSize(fileobject):
+    fileobject.seek(0,2) # move the cursor to the end of the file
+    size = fileobject.tell()
+    return size
+
 class crypto:    
     def Salt(N):
         return ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(N))

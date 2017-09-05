@@ -1,5 +1,9 @@
 import defins
 import config
+import sys
+
+#argv= [
+argv = sys.argv[:]
 
 def xor(a, b):
     return not a == b
@@ -7,16 +11,14 @@ def xor(a, b):
 def bitXor(a, b):
     return a ^ b
 
-def byes(by, target, i=0):
-    i = i+1;
-    by = defins.crypto.sha512(by)
-    if i == target: return by
-    else: return byes(i, target, i=i)
-
-def lcsGen(string):
-    pass
-
 import hashlib;
+
+def byes(by, i=0):
+    global config
+    i+= 1;
+    by = defins.crypto.sha512(by)
+    if i == config.encryptionRounds: return by
+    else: return byes(i, target, i=i)
 
 def quick(a): return int(a.hex(), base=16);
 
