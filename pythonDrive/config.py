@@ -5,6 +5,7 @@ def os():
     
 #   ==  Manual config  ==
 encoding = "UTF-8"
+encryptionRounds = 50;
 
 #   - Crypto -
 saltLengh = 20
