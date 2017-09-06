@@ -5,7 +5,7 @@ The web is at a true turning point where censorship is the norm of internet. Mon
 
 With the new state-of-the-art encryption and security, you can rest assure that even with a forced physical take over of this website and all of it's hardware, your data and content will remain secure. 
 
-=== How it works ===
+### How it works
 ```
  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 |                                                                        - ■ x|
@@ -40,15 +40,15 @@ With the new state-of-the-art encryption and security, you can rest assure that 
 4. Your message is decrypted when it arrives and then is encrypted with the state-of-the-art encryption and sent forward to the intended recipient.
 5. You receive your message back as a confirmation that the message has been sent.
 
-==Optional Steps==
+##### Optional Steps
 6. Server automatically updates it's certificates to keep you and other users safe from prying eyes and unauthorized personnel. Thank you so much: Let's Encrypt! (https://letsencrypt.org/)
 7. Sometimes, when you or your browser sends too many requests to the main server, a captcha may be required for you to continue. This is to ensure that the server cannot be broken into using brute-force type of attacks. You can choose weather you want your account protected by a captcha. 
 
-=== To do: ===
-Key: [ ] To do, [-] In progress, [x] Finished
-[-] - Finish Secure Algorithm.
-[-] - Finish Database.
-[ ] - Create Web Front.
-[ ] - Integrate Google Captcha API.
-[ ] - Publish.
-[ ] - Create my own Captcha to replace reliance on Google.
+### To do:
+Key: [ ] To do, [-] In progress, [x] Finished<br>
+[-] - Finish Secure Algorithm.<br>
+[-] - Finish Database.<br>
+[ ] - Create Web Front.<br>
+[ ] - Integrate Google Captcha API.<br>
+[ ] - Publish.<br>
+[ ] - Create my own Captcha to replace reliance on Google.<br>
