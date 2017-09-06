@@ -6,7 +6,7 @@ The web is at a true turning point where censorship is the norm of internet. Mon
 With the new state-of-the-art encryption and security, you can rest assure that even with a forced physical take over of this website and all of it's hardware, your data and content will remain secure. 
 
 === How it works ===
-<tt>
+```
  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 |                                                                        - ■ x|
 |                               Simplified Graph                              |
@@ -32,7 +32,7 @@ With the new state-of-the-art encryption and security, you can rest assure that 
 |                                           (4)                               |
 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |
 
-</tt>
+```
 
 1. When you first visit this website, you will query the nearest DNS server about it's IP address.  
 2. When you connect to the HTTPS port, your computer will then query the nearest Let's Encrypt Certificate Authority to confirm the certificate provided by my server.
