@@ -1,10 +1,10 @@
 import defins
 import config
 import sys
-##import hashlib
 
-#argv= ["python", "username", "password"]
 argv = sys.argv[:]
+argv= ["python", "username", "password"]
+username, password = argv[1], argv[2]
 
 def xor(a, b):
     return not a == b
